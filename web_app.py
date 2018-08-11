@@ -24,10 +24,6 @@ WEATHER_CONDITIONS = ['rain', 'sun', 'wind', 'fog']
 
 TRAFFIC_CONDITIONS = ['clear', 'congestion']
 
-@APP.route('/', methods=['GET'])
-def index():
-    return render_template('index.html')
-
 @APP.route('/buses/<destination>', methods=['GET'])
 def bus_time(destination):
     time_now = int(datetime.datetime.now().strftime("%H%M"))
@@ -54,6 +50,10 @@ def traffic():
     if traffic_state != 'clear':
         traffic_state = "%s %s" % (CONDITION_ADJECTIVES[(int(time_now/3)%4)-2], traffic_state)
     return jsonify(current_traffic=traffic_state)
+
+@APP.errorhandler(404)
+def page_not_found(e):
+    return "This page doesn't exist!"
 
 if __name__ == '__main__':
     APP.run(host="0.0.0.0", debug=True)
