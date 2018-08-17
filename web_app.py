@@ -55,6 +55,10 @@ def traffic():
         traffic_state = "%s %s" % (CONDITION_ADJECTIVES[(int(time_now/3)%4)-2], traffic_state)
     return jsonify(current_traffic=traffic_state)
 
+@APP.route('/code')
+def code():
+    return redirect('https://github.com/jrmedd/SummerHack/tree/master/python_examples')
+
 @APP.errorhandler(404)
 def page_not_found(e):
     return "This page doesn't exist!"
