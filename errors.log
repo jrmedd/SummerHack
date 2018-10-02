@@ -1,0 +1,3 @@
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 192-847-219
+INFO:werkzeug: * Detected change in '/Users/jrmedd/Google Drive/SummerHack/web_app.py', reloading

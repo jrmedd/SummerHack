@@ -8,9 +8,12 @@ from flask import Flask, render_template, request, session, redirect, jsonify, u
 
 from pymongo import MongoClient
 
-MONGO_URL = os.environ.get('MONGO_URL')
+import logging
+logging.basicConfig(filename='errors.log',level=logging.DEBUG)
 
+MONGO_URL = os.environ.get('MONGO_URL')
 CLIENT = MongoClient(MONGO_URL)
+print("Connected to MongoDB")
 
 MANCHESTER_TZ = pytz.timezone("Europe/London")
 
@@ -27,6 +30,7 @@ CONDITION_ADJECTIVES = ['lots of', 'mild', 'light', 'very light']
 WEATHER_CONDITIONS = ['rain', 'sun', 'wind', 'fog']
 
 TRAFFIC_CONDITIONS = ['clear', 'congestion']
+
 
 @APP.route('/buses/<destination>', methods=['GET'])
 def bus_time(destination):
@@ -64,4 +68,5 @@ def page_not_found(e):
     return "This page doesn't exist!"
 
 if __name__ == '__main__':
-    APP.run(host="0.0.0.0", debug=True)
+    print("Starting application")
+    APP.run()
