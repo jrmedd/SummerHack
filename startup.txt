@@ -1,1 +1,1 @@
-gunicorn -w 4 web_app:APP --preload
+gunicorn web_app:APP
