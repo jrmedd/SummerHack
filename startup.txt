@@ -1,1 +1,1 @@
-gunicorn web_app:APP --log-file="gunicorn-errors.log"
+gunicorn web_app:APP --bind="0.0.0.0" --timeout 600 --log-file="gunicorn-errors.log"
