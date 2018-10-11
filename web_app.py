@@ -25,6 +25,9 @@ APP = Flask(__name__)
 
 APP.secret_key = os.environ.get('SECRET_KEY')
 
+LETS_ENCRYPT_CHALLENGE = os.environ.get('LETS_ENCRYPT_CHALLENGE')
+LETS_ENCRYPT_RESPONSE = os.environ.get('LETS_ENCRYPT_RESPONSE')
+
 CONDITION_ADJECTIVES = ['lots of', 'mild', 'light', 'very light']
 
 WEATHER_CONDITIONS = ['rain', 'sun', 'wind', 'fog']
@@ -62,6 +65,13 @@ def traffic():
 @APP.route('/code')
 def code():
     return redirect('https://github.com/jrmedd/SummerHack/tree/master/python_examples')
+
+@APP.route('/.well-known/challenge/<challenge_string>')
+def acme_challenge(challenge_string):
+    if challenge_string == LETS_ENCRYPT_CHALLENGE:
+        return LETS_ENCRYPT_RESPONSE
+    else:
+        return "Doesn't match"
 
 @APP.errorhandler(404)
 def page_not_found(e):
