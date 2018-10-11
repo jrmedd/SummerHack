@@ -66,7 +66,7 @@ def traffic():
 def code():
     return redirect('https://github.com/jrmedd/SummerHack/tree/master/python_examples')
 
-@APP.route('/.well-known/challenge/<challenge_string>')
+@APP.route('/.well-known/acme-challenge/<challenge_string>')
 def acme_challenge(challenge_string):
     if challenge_string == LETS_ENCRYPT_CHALLENGE:
         return LETS_ENCRYPT_RESPONSE
