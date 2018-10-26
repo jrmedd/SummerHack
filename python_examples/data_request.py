@@ -4,7 +4,7 @@
 import requests
 
 # add the data source URL here, in quotation marks
-url = 'https://summerhack.xyz/buses/manchester'
+url = 'https://halloweenhack.xyz/buses/manchester'
 
 # send a GET request to the URL, and save the response in a variable called 'r'
 r = requests.get(url)

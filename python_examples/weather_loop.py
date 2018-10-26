@@ -4,7 +4,7 @@ import time
 
 blinkt.set_brightness(0.3)
 
-url = "https://summerhack.xyz/weather"
+url = "https://halloweenhack.xyz/weather"
 
 
 # possible weather types

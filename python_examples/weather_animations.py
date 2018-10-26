@@ -3,7 +3,7 @@ import blinkt
 import time
 
 
-url = "https://summerhack.xyz/weather"
+url = "https://halloweenhack.xyz/weather"
 
 ## ANIMATION FUNCTIONS ##
 # fade in a block colour
@@ -27,7 +27,7 @@ def rain(r, g, b):
             blinkt.set_pixel(i-1, 0, 0, 0)
             blinkt.show()
             if i == 6 or i == 7:
-                blinkt.set_pixel(i, 0, 0, 0);
+                blinkt.set_pixel(i, 0, 0, 0)
                 blinkt.show()
 
         time.sleep(0.05)
