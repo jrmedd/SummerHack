@@ -30,7 +30,7 @@ LETS_ENCRYPT_RESPONSE = os.environ.get('LETS_ENCRYPT_RESPONSE')
 
 CONDITION_ADJECTIVES = ['lots of', 'mild', 'light', 'very light']
 
-WEATHER_CONDITIONS = ['rain', 'sun', 'wind', 'fog']
+WEATHER_CONDITIONS = ['rain', 'sun', 'wind', 'fog', 'snow']
 
 TRAFFIC_CONDITIONS = ['clear', 'congestion']
 
@@ -51,7 +51,7 @@ def bus_time(destination):
 @APP.route('/weather', methods=['GET'])
 def weather():
     time_now = int(datetime.datetime.now(MANCHESTER_TZ).strftime("%M"))
-    conditions = "%s %s" % (CONDITION_ADJECTIVES[int(time_now/3)%4], WEATHER_CONDITIONS[int(time_now/15)])
+    conditions = "%s %s" % (CONDITION_ADJECTIVES[int(time_now/3)%4], WEATHER_CONDITIONS[int(time_now/12)])
     return jsonify(current_conditions=conditions)
 
 @APP.route('/traffic', methods=['GET'])
